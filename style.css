@@ -1,0 +1,238 @@
+/* Configurações gerais */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #222222;
+  margin: 0;
+}
+
+/* Cabeçalho */
+header {
+  background: linear-gradient(135deg, #641522, #8b1e2d);
+  color: white;
+  text-align: center;
+  padding: 35px 20px;
+  border-bottom: 4px solid #c0392b;
+}
+
+header h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+
+header p {
+  margin: 0;
+  color: #dce5f0;
+}
+
+/* Conteúdo principal */
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Seções */
+section {
+  background-color: white;
+  padding: 25px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+section h2 {
+  color: #14213d;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Cartões do resumo */
+.resumo-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background-color: #fdecec;
+  border: 1px solid #f3c6c9;
+  border-left: 4px solid #c0392b;
+  padding: 18px;
+  border-radius: 8px;
+}
+
+.card h3 {
+  color: #4b5563;
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+
+.card p {
+  color: #14213d;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  color: #14213d;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: white;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #70d6ff;
+  border-color: #14213d;
+}
+
+/* Botão de cadastro */
+button {
+  background-color: #8b1e2d;
+  color: white;
+  border: none;
+  padding: 13px 18px;
+  margin-top: 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #641522;
+  transform: translateY(-2px);
+}
+
+/* Histórico */
+
+/* Histórico de lançamentos */
+#lista-lancamentos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+/* Espaçamento entre o filtro e os cartões */
+#filtro-tipo {
+  margin-bottom: 20px;
+}
+/* Espaçamento entre as datas e os cartões */
+.filtro-periodo {
+  margin-bottom: 20px;
+}
+
+/* Cartão individual de lançamento */
+.item-lancamento {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px 15px;
+  align-items: center;
+  padding: 18px;
+  background-color: #fff8f8;
+  border: 1px solid #f3c6c9;
+  border-left: 4px solid #8b1e2d;
+  border-radius: 8px;
+}
+
+/* Descrição do lançamento */
+.item-lancamento h3 {
+  margin: 0;
+  color: #641522;
+  font-size: 17px;
+}
+
+/* Categoria e data */
+.item-lancamento p {
+  margin: 3px 0;
+}
+
+/* Botão de excluir */
+.item-lancamento button {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  margin-top: 0;
+  background-color: #c0392b;
+  padding: 10px 14px;
+}
+
+.item-lancamento button:hover {
+  background-color: #8b1e2d;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 480px) {
+  .item-lancamento {
+    padding: 13px;
+    gap: 5px 10px;
+  }
+
+  .item-lancamento button {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 650px) {
+  header {
+    padding: 28px 15px;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  main {
+    margin: 20px auto;
+    padding: 0 12px;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  .resumo-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card p {
+    font-size: 22px;
+  }
+}
+/* Espaçamento entre os filtros */
+#filtro-tipo {
+  margin-bottom: 15px;
+}
+
+.filtro-periodo > div:first-child {
+  margin-bottom: 15px;
+}

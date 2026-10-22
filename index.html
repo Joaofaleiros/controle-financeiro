@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle Financeiro Pessoal</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Controle Financeiro</h1>
+      <p>Organize receitas e despezas pessoais</p>
+    </header>
+
+    <main>
+      <section id="resumo">
+        <h2>Resumo financeiro</h2>
+
+        <div class="resumo-cards">
+          <div class="card">
+            <h3>Saldo atual</h3>
+            <p id="saldo">R$ 0,00</p>
+          </div>
+
+          <div class="card">
+            <h3>Receitas</h3>
+            <p id="receitas">R$ 0,00</p>
+          </div>
+
+          <div class="card">
+            <h3>Despesas</h3>
+            <p id="despesas">R$ 0,00</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="cadastro">
+        <h2>Novo lançamento</h2>
+
+        <form id="form-lancamento">
+          <label for="descricao">Descrição</label>
+          <input
+            type="text"
+            id="descricao"
+            placeholder="Ex.: Salário ou supermercado"
+            required
+          />
+
+          <label for="data">Data do lançamento</label>
+          <input type="date" id="data" required />
+
+          <label for="valor">Valor (R$)</label>
+          <input
+            type="text"
+            id="valor"
+            placeholder="Ex.: 150,00"
+            inputmode="decimal"
+            required
+          />
+
+          <label for="tipo">Tipo de lançamento</label>
+          <select id="tipo" required>
+            <option value="receita">Receita</option>
+            <option value="despesa">Despesa</option>
+          </select>
+
+          <label for="categoria">Categoria</label>
+          <select id="categoria" required>
+            <option value="Salário">Salário</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Moradia">Moradia</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Outros">Outros</option>
+          </select>
+
+          <button type="submit">Adicionar lançamento</button>
+        </form>
+      </section>
+
+      <section id="historico">
+        <h2>Histórico de lançamentos</h2>
+
+        <label for="filtro-tipo">Filtrar lançamentos</label>
+        <select id="filtro-tipo">
+          <option value="todos">Todos os lançamentos</option>
+          <option value="receita">Somente receitas</option>
+          <option value="despesa">Somente despesas</option>
+        </select>
+
+        <div class="filtro-periodo">
+          <div>
+            <label for="data-inicial">Data inicial</label>
+            <input type="date" id="data-inicial" />
+          </div>
+
+          <div>
+            <label for="data-final">Data final</label>
+            <input type="date" id="data-final" />
+          </div>
+        </div>
+
+        <div id="lista-lancamentos">
+          <p>Nenhum lançamento cadastrado.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
