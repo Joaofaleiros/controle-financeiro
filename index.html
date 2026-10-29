@@ -23,20 +23,29 @@
         <h2>Resumo financeiro</h2>
 
         <div class="resumo-cards">
-          <div class="card">
+          <div class="card card-saldo">
             <h3>Saldo atual</h3>
             <p id="saldo">R$ 0,00</p>
           </div>
 
-          <div class="card">
+          <div class="card card-receitas">
             <h3>Receitas</h3>
             <p id="receitas">R$ 0,00</p>
           </div>
 
-          <div class="card">
+          <div class="card card-despesas">
             <h3>Despesas</h3>
             <p id="despesas">R$ 0,00</p>
           </div>
+        </div>
+      </section>
+
+      <section id="secao-grafico">
+        <h2>Visão geral financeira</h2>
+        <p>Compare suas receitas e despesas.</p>
+
+        <div class="grafico-container">
+          <canvas id="grafico-financeiro"></canvas>
         </div>
       </section>
 
@@ -112,6 +121,7 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -28,6 +28,64 @@ function formatarMoeda(valor) {
 function salvarLancamentos() {
   localStorage.setItem("lancamentos", JSON.stringify(lancamentos));
 }
+// Controla o gráfico financeiro
+let graficoFinanceiro;
+
+// Cria e atualiza o gráfico de receitas e despesas
+function atualizarGrafico(receitas, despesas) {
+  const contexto = document.getElementById("grafico-financeiro");
+
+  if (!contexto || typeof Chart === "undefined") {
+    return;
+  }
+
+  if (!graficoFinanceiro) {
+    graficoFinanceiro = new Chart(contexto, {
+      type: "bar",
+      data: {
+        labels: ["Receitas", "Despesas"],
+        datasets: [
+          {
+            label: "Valor (R$)",
+            data: [receitas, despesas],
+            backgroundColor: ["#16a34a", "#dc2626"],
+            hoverBackgroundColor: ["#15803d", "#b91c1c"],
+            borderRadius: 8,
+            borderSkipped: false,
+            maxBarThickness: 90,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: true,
+            position: "top",
+          },
+          tooltip: {
+            callbacks: {
+              label: (contexto) =>
+                " " + contexto.label + ": " + formatarMoeda(contexto.raw),
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              callback: (valor) => "R$ " + valor.toLocaleString("pt-BR"),
+            },
+          },
+        },
+      },
+    });
+  } else {
+    graficoFinanceiro.data.datasets[0].data = [receitas, despesas];
+    graficoFinanceiro.update();
+  }
+}
 
 // Atualiza o resumo financeiro
 function atualizarResumo() {
@@ -44,6 +102,8 @@ function atualizarResumo() {
   saldoElemento.textContent = formatarMoeda(saldo);
   receitasElemento.textContent = formatarMoeda(receitas);
   despesasElemento.textContent = formatarMoeda(despesas);
+
+  atualizarGrafico(receitas, despesas);
 }
 
 // Exibe o histórico de lançamentos
